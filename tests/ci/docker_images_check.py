@@ -130,7 +130,6 @@ def build_and_push_one_image(
             f"--build-arg BUILDKIT_INLINE_CACHE=1 "
             f"--tag {image_name}:{version_string} "
             f"--cache-from type=registry,ref={image_name}:{version_string} "
-            f"--cache-to type=inline "
             f"--progress plain --push {path}"
         )
         logging.info("Docker command to run: %s", cmd)
