@@ -126,7 +126,8 @@ def build_and_push_one_image(
     ) as pl:
         cmd = (
             "docker buildx build --builder default "
-            f"--build-arg FROM_TAG={version_string},BUILDKIT_INLINE_CACHE=1 "
+            f"--build-arg FROM_TAG={version_string} "
+            f"--build-arg BUILDKIT_INLINE_CACHE=1 "
             f"--tag {image_name}:{version_string} "
             f"--cache-from type=registry,ref={image_name}:{version_string} "
             f"--cache-to type=inline "
