@@ -5,6 +5,8 @@ import json
 import os
 import time
 import shutil
+from typing import List, Tuple
+
 from github import Github  # type: ignore
 
 from env_helper import GITHUB_WORKSPACE, RUNNER_TEMP
@@ -15,8 +17,6 @@ from upload_result_helper import upload_results
 from commit_status_helper import get_commit
 from clickhouse_helper import ClickHouseHelper, prepare_tests_results_for_clickhouse
 from stopwatch import Stopwatch
-
-from typing import List, Tuple
 
 NAME = "Push to Dockerhub (actions)"
 
