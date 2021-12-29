@@ -519,7 +519,7 @@ WHERE (CounterID = 912887) AND (toYYYYMM(StartDate) = 201403) AND (domain(StartU
 
 ClickHouse集群是一个同质集群。 设置步骤:
 
-1.  在群集的所有机器上安装ClickHouse服务端
+1.  在集群的所有机器上安装ClickHouse服务端
 2.  在配置文件中设置集群配置
 3.  在每个实例上创建本地表
 4.  创建一个[分布式表](../engines/table-engines/special/distributed.md)
@@ -566,7 +566,7 @@ CREATE TABLE tutorial.hits_all AS tutorial.hits_local
 ENGINE = Distributed(perftest_3shards_1replicas, tutorial, hits_local, rand());
 ```
 
-常见的做法是在集群的所有计算机上创建类似的分布式表。 它允许在群集的任何计算机上运行分布式查询。 还有一个替代选项可以使用以下方法为给定的SELECT查询创建临时分布式表[远程](../sql-reference/table-functions/remote.md)表功能。
+常见的做法是在集群的所有计算机上创建类似的分布式表。 它允许在集群的任何计算机上运行分布式查询。 还有一个替代选项可以使用以下方法为给定的SELECT查询创建临时分布式表[远程](../sql-reference/table-functions/remote.md)表功能。
 
 让我们运行[INSERT SELECT](../sql-reference/statements/insert-into.md)将该表传播到多个服务器。
 
